@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import br.com.alura.easytravel.R;
 
-public class PackageList extends AppCompatActivity {
+public class PackageListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
