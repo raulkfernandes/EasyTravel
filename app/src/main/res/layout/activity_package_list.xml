@@ -8,7 +8,7 @@
     tools:context=".ui.activity.PackageListActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/activity_package_list_banner"
         android:layout_width="0dp"
         android:layout_height="120dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,7 +19,7 @@
         app:srcCompat="@android:color/holo_purple" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/actitivy_package_list_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -34,7 +34,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/activity_package_list_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -42,15 +42,19 @@
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/textView"
-        app:layout_constraintTop_toBottomOf="@id/textView" />
+        app:layout_constraintStart_toStartOf="@id/actitivy_package_list_title"
+        app:layout_constraintTop_toBottomOf="@id/actitivy_package_list_title" />
 
     <ListView
+        android:id="@+id/activity_package_list_listview"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_package_list_banner"
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/item_package_list" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
