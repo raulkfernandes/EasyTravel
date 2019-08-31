@@ -58,32 +58,51 @@ public class PackageListAdapter extends BaseAdapter {
 
         PackageItem packageItem = packageList.get(index);
 
-        ImageView image = mView.findViewById(R.id.item_package_list_image);
-        Resources contextResources = mContext.getResources();
-        int drawableId = contextResources.getIdentifier(packageItem.getImage(), "drawable", mContext.getPackageName());
-        Drawable imageDrawable = contextResources.getDrawable(drawableId);
-        image.setImageDrawable(imageDrawable);
-
-        TextView destination = mView.findViewById(R.id.item_package_list_destination);
-        destination.setText(packageItem.getDestination());
-
-        TextView stay = mView.findViewById(R.id.item_package_list_stay);
-        String stayFormat;
-        int daysOfStay = packageItem.getStay();
-        if(daysOfStay > 1) {
-            stayFormat = daysOfStay + " dias";
-        }
-        else {
-            stayFormat = daysOfStay + " dia";
-        }
-        stay.setText(stayFormat);
-
-        TextView price = mView.findViewById(R.id.item_package_list_price);
-        BigDecimal priceValue = packageItem.getPrice();
-        NumberFormat currencyFormat = DecimalFormat.getCurrencyInstance(new Locale("pt", "br"));
-        String priceFormat = currencyFormat.format(priceValue).replace("R$", "R$ ");
-        price.setText(priceFormat);
+        bindImageToLayout(mView, packageItem);
+        bindDestinationToLayout(mView, packageItem);
+        bindStayToLayout(mView, packageItem);
+        bindPriceToLayout(mView, packageItem);
 
         return mView;
+    }
+
+    private void bindPriceToLayout(View mView, PackageItem packageItem) {
+        TextView price = mView.findViewById(R.id.item_package_list_price);
+        String priceTextFormat = formatPriceText(packageItem);
+        price.setText(priceTextFormat);
+    }
+
+    private String formatPriceText(PackageItem packageItem) {
+        BigDecimal priceValue = packageItem.getPrice();
+        NumberFormat currencyFormat = DecimalFormat.getCurrencyInstance(new Locale("pt", "br"));
+        return currencyFormat.format(priceValue).replace("R$", "R$ ");
+    }
+
+    private void bindStayToLayout(View mView, PackageItem packageItem) {
+        TextView stay = mView.findViewById(R.id.item_package_list_stay);
+        String stayTextFormat = formatStayText(packageItem);
+        stay.setText(stayTextFormat);
+    }
+
+    private String formatStayText(PackageItem packageItem) {
+        int daysOfStay = packageItem.getStay();
+        return (daysOfStay > 1) ? daysOfStay + " dias" : daysOfStay + " dia";
+    }
+
+    private void bindDestinationToLayout(View mView, PackageItem packageItem) {
+        TextView destination = mView.findViewById(R.id.item_package_list_destination);
+        destination.setText(packageItem.getDestination());
+    }
+
+    private void bindImageToLayout(View mView, PackageItem packageItem) {
+        ImageView image = mView.findViewById(R.id.item_package_list_image);
+        Drawable imageDrawable = getImageDrawable(packageItem);
+        image.setImageDrawable(imageDrawable);
+    }
+
+    private Drawable getImageDrawable(PackageItem packageItem) {
+        Resources contextResources = mContext.getResources();
+        int drawableId = contextResources.getIdentifier(packageItem.getImage(), "drawable", mContext.getPackageName());
+        return contextResources.getDrawable(drawableId);
     }
 }

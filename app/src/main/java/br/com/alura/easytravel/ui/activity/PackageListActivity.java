@@ -14,12 +14,17 @@ import br.com.alura.easytravel.ui.adapter.PackageListAdapter;
 
 public class PackageListActivity extends AppCompatActivity {
 
+    public static final String APPBAR_TITLE = "Pacotes";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_package_list);
-        setTitle("Pacotes");
+        setTitle(APPBAR_TITLE);
+        setupListView();
+    }
 
+    private void setupListView() {
         ListView packageList = findViewById(R.id.activity_package_list_listview);
         List<PackageItem> packages = new PackageDAO().samplePackageList();
         packageList.setAdapter(new PackageListAdapter(this, packages));
