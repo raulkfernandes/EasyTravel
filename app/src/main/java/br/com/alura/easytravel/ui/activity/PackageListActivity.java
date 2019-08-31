@@ -14,7 +14,7 @@ import br.com.alura.easytravel.ui.adapter.PackageListAdapter;
 
 public class PackageListActivity extends AppCompatActivity {
 
-    public static final String APPBAR_TITLE = "Pacotes";
+    private static final String APPBAR_TITLE = "Pacotes";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

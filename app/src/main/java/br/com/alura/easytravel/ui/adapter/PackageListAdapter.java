@@ -1,7 +1,6 @@
 package br.com.alura.easytravel.ui.adapter;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,14 +9,12 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.List;
-import java.util.Locale;
 
 import br.com.alura.easytravel.R;
 import br.com.alura.easytravel.model.PackageItem;
+import br.com.alura.easytravel.util.ResourcesUtil;
+import br.com.alura.easytravel.util.TextsUtil;
 
 public class PackageListAdapter extends BaseAdapter {
 
@@ -68,25 +65,14 @@ public class PackageListAdapter extends BaseAdapter {
 
     private void bindPriceToLayout(View mView, PackageItem packageItem) {
         TextView price = mView.findViewById(R.id.item_package_list_price);
-        String priceTextFormat = formatPriceText(packageItem);
+        String priceTextFormat = TextsUtil.formatPriceText(packageItem.getPrice());
         price.setText(priceTextFormat);
-    }
-
-    private String formatPriceText(PackageItem packageItem) {
-        BigDecimal priceValue = packageItem.getPrice();
-        NumberFormat currencyFormat = DecimalFormat.getCurrencyInstance(new Locale("pt", "br"));
-        return currencyFormat.format(priceValue).replace("R$", "R$ ");
     }
 
     private void bindStayToLayout(View mView, PackageItem packageItem) {
         TextView stay = mView.findViewById(R.id.item_package_list_stay);
-        String stayTextFormat = formatStayText(packageItem);
+        String stayTextFormat = TextsUtil.formatStayText(packageItem.getStay());
         stay.setText(stayTextFormat);
-    }
-
-    private String formatStayText(PackageItem packageItem) {
-        int daysOfStay = packageItem.getStay();
-        return (daysOfStay > 1) ? daysOfStay + " dias" : daysOfStay + " dia";
     }
 
     private void bindDestinationToLayout(View mView, PackageItem packageItem) {
@@ -96,13 +82,7 @@ public class PackageListAdapter extends BaseAdapter {
 
     private void bindImageToLayout(View mView, PackageItem packageItem) {
         ImageView image = mView.findViewById(R.id.item_package_list_image);
-        Drawable imageDrawable = getImageDrawable(packageItem);
+        Drawable imageDrawable = ResourcesUtil.getImageDrawable(mContext, packageItem.getImage());
         image.setImageDrawable(imageDrawable);
-    }
-
-    private Drawable getImageDrawable(PackageItem packageItem) {
-        Resources contextResources = mContext.getResources();
-        int drawableId = contextResources.getIdentifier(packageItem.getImage(), "drawable", mContext.getPackageName());
-        return contextResources.getDrawable(drawableId);
     }
 }
