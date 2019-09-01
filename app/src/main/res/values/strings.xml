@@ -3,4 +3,5 @@
     <string name="image_description">Initial Banner</string>
     <string name="package_list_title">Especiais</string>
     <string name="package_list_country">Brasil</string>
+    <string name="package_image_description">Destination image preview</string>
 </resources>
