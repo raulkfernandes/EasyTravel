@@ -17,32 +17,6 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@color/colorPrimary" />
 
-    <ListView
-        android:id="@+id/activity_package_list_listview"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:divider="@null"
-        android:dividerHeight="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/activity_package_list_banner"
-        app:layout_constraintVertical_bias="0.0"
-        tools:listitem="@layout/item_package_list" />
-
-    <TextView
-        android:id="@+id/activity_package_list_country"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/package_list_country"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/actitivy_package_list_title"
-        app:layout_constraintTop_toBottomOf="@id/actitivy_package_list_title" />
-
     <TextView
         android:id="@+id/actitivy_package_list_title"
         android:layout_width="wrap_content"
@@ -57,5 +31,31 @@
         app:layout_constraintStart_toStartOf="@id/activity_package_list_banner"
         app:layout_constraintTop_toTopOf="@id/activity_package_list_banner"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/activity_package_list_country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/package_list_country"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/actitivy_package_list_title"
+        app:layout_constraintTop_toBottomOf="@id/actitivy_package_list_title" />
+
+    <ListView
+        android:id="@+id/activity_package_list_listview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_package_list_banner"
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/item_package_list" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

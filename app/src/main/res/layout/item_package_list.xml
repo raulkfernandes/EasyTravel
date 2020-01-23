@@ -50,6 +50,15 @@
                 app:layout_constraintVertical_bias="1.0"
                 tools:text="@sample/packages.json/packages/destination" />
 
+            <View
+                android:id="@+id/item_package_list_divisor"
+                android:layout_width="0dp"
+                android:layout_height="3dp"
+                android:background="@android:color/holo_orange_dark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/item_package_list_image" />
+
             <TextView
                 android:id="@+id/item_package_list_stay"
                 android:layout_width="wrap_content"
@@ -75,14 +84,6 @@
                 app:layout_constraintTop_toBottomOf="@id/item_package_list_stay"
                 tools:text="@sample/packages.json/packages/price" />
 
-            <View
-                android:id="@+id/item_package_list_divisor"
-                android:layout_width="0dp"
-                android:layout_height="3dp"
-                android:background="@android:color/holo_orange_dark"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/item_package_list_image" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
