@@ -1,5 +1,6 @@
 package br.com.alura.easytravel.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 
@@ -22,6 +23,9 @@ public class PackageListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_package_list);
         setTitle(APPBAR_TITLE);
         setupListView();
+
+        Intent intent = new Intent(this, PackageSummaryActivity.class);
+        startActivity(intent);
     }
 
     private void setupListView() {
