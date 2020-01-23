@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">EasyTravel</string>
-    <string name="image_description">Initial Banner</string>
+    <string name="banner_description">Initial Banner</string>
     <string name="package_list_title">Especiais</string>
     <string name="package_list_country">Brasil</string>
     <string name="package_image_description">Destination image preview</string>
     <string name="final_price">Preço final:</string>
+    <string name="summary_image_description">Package destination image</string>
+    <string name="package_summary_button_text">Realizar pagamento</string>
 </resources>
