@@ -1,5 +1,7 @@
 package br.com.alura.easytravel.util;
 
+import android.annotation.SuppressLint;
+
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -15,7 +17,7 @@ public class TextsUtil {
     private static final String COUNTRY_BR = "br";
     private static final String CURRENCY_FORMAT_BR_STANDARD = "R$";
     private static final String CURRENCY_FORMAT_BR_FINAL = "R$ ";
-    public static final String DATE_FORMAT = "dd/MM/yy";
+    private static final String DATE_FORMAT = "dd/MM/yy";
 
     public static String formatStayingTimeText(int daysOfStay) {
         return (daysOfStay == 1) ?  daysOfStay + DAYS_SINGULAR : daysOfStay + DAYS_PLURAL;
@@ -30,7 +32,7 @@ public class TextsUtil {
         Calendar startDate = Calendar.getInstance();
         Calendar returnDate = Calendar.getInstance();
         returnDate.add(Calendar.DATE, stay);
-        SimpleDateFormat summaryDateFormat = new SimpleDateFormat(DATE_FORMAT);
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat summaryDateFormat = new SimpleDateFormat(DATE_FORMAT);
         String startDateFormatted = summaryDateFormat.format(startDate.getTime());
         String returnDateFormatted = summaryDateFormat.format(returnDate.getTime());
         return startDateFormatted + " - " + returnDateFormatted;
