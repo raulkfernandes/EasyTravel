@@ -57,7 +57,7 @@ public class PackageListAdapter extends BaseAdapter {
 
         bindImageToLayout(mView, packageItem);
         bindDestinationToLayout(mView, packageItem);
-        bindStayToLayout(mView, packageItem);
+        bindStayingTimeToLayout(mView, packageItem);
         bindPriceToLayout(mView, packageItem);
 
         return mView;
@@ -69,9 +69,9 @@ public class PackageListAdapter extends BaseAdapter {
         price.setText(priceTextFormat);
     }
 
-    private void bindStayToLayout(View mView, PackageItem packageItem) {
+    private void bindStayingTimeToLayout(View mView, PackageItem packageItem) {
         TextView stay = mView.findViewById(R.id.item_package_list_stay);
-        String stayTextFormat = TextsUtil.formatStayText(packageItem.getStay());
+        String stayTextFormat = TextsUtil.formatStayingTimeText(packageItem.getStay());
         stay.setText(stayTextFormat);
     }
 

@@ -2,15 +2,12 @@ package br.com.alura.easytravel.ui.activity;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 import br.com.alura.easytravel.R;
 import br.com.alura.easytravel.model.PackageItem;
@@ -29,29 +26,39 @@ public class PackageSummaryActivity extends AppCompatActivity {
 
         PackageItem packageSP = new PackageItem("sao_paulo_sp", "São Paulo", 2, new BigDecimal(243.99));
 
-        ImageView summaryImage = findViewById(R.id.activity_package_summary_image);
-        Drawable imageDrawable = ResourcesUtil.getImageDrawable(this, packageSP.getImage());
-        summaryImage.setImageDrawable(imageDrawable);
+        showImage(packageSP);
+        showDestination(packageSP);
+        showStayingTime(packageSP);
+        showStayingDate(packageSP);
+        showPrice(packageSP);
+    }
 
-        TextView summaryDestination = findViewById(R.id.activity_package_summary_destination);
-        summaryDestination.setText(packageSP.getDestination());
-
-        TextView summaryStay = findViewById(R.id.activity_package_summary_stay);
-        String stayText = TextsUtil.formatStayText(packageSP.getStay());
-        summaryStay.setText(stayText);
-
-        TextView summaryPrice = findViewById(R.id.activity_package_summary_price);
-        String priceText = TextsUtil.formatPriceText(packageSP.getPrice());
-        summaryPrice.setText(priceText);
-
+    private void showStayingDate(PackageItem packageItem) {
         TextView summaryDate = findViewById(R.id.activity_package_summary_date);
-        Calendar startDate = Calendar.getInstance();
-        Calendar returnDate = Calendar.getInstance();
-        returnDate.add(Calendar.DATE, packageSP.getStay());
-        SimpleDateFormat summaryDateFormat = new SimpleDateFormat("dd/MM/yy");
-        String startDateFormatted = summaryDateFormat.format(startDate.getTime());
-        String returnDateFormatted = summaryDateFormat.format(returnDate.getTime());
-        String summaryDateFormatted = startDateFormatted + " - " + returnDateFormatted;
+        String summaryDateFormatted = TextsUtil.formatStayingDateText(packageItem.getStay());
         summaryDate.setText(summaryDateFormatted);
+    }
+
+    private void showPrice(PackageItem packageItem) {
+        TextView summaryPrice = findViewById(R.id.activity_package_summary_price);
+        String priceText = TextsUtil.formatPriceText(packageItem.getPrice());
+        summaryPrice.setText(priceText);
+    }
+
+    private void showStayingTime(PackageItem packageItem) {
+        TextView summaryStay = findViewById(R.id.activity_package_summary_stay);
+        String stayText = TextsUtil.formatStayingTimeText(packageItem.getStay());
+        summaryStay.setText(stayText);
+    }
+
+    private void showDestination(PackageItem packageItem) {
+        TextView summaryDestination = findViewById(R.id.activity_package_summary_destination);
+        summaryDestination.setText(packageItem.getDestination());
+    }
+
+    private void showImage(PackageItem packageItem) {
+        ImageView summaryImage = findViewById(R.id.activity_package_summary_image);
+        Drawable imageDrawable = ResourcesUtil.getImageDrawable(this, packageItem.getImage());
+        summaryImage.setImageDrawable(imageDrawable);
     }
 }

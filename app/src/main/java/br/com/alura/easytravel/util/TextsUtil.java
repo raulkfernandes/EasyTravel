@@ -3,6 +3,8 @@ package br.com.alura.easytravel.util;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Locale;
 
 public class TextsUtil {
@@ -13,13 +15,24 @@ public class TextsUtil {
     private static final String COUNTRY_BR = "br";
     private static final String CURRENCY_FORMAT_BR_STANDARD = "R$";
     private static final String CURRENCY_FORMAT_BR_FINAL = "R$ ";
+    public static final String DATE_FORMAT = "dd/MM/yy";
 
-    public static String formatStayText(int daysOfStay) {
+    public static String formatStayingTimeText(int daysOfStay) {
         return (daysOfStay == 1) ?  daysOfStay + DAYS_SINGULAR : daysOfStay + DAYS_PLURAL;
     }
 
     public static String formatPriceText(BigDecimal priceValue) {
         NumberFormat currencyFormat = DecimalFormat.getCurrencyInstance(new Locale(LANGUAGE_PT, COUNTRY_BR));
         return currencyFormat.format(priceValue).replace(CURRENCY_FORMAT_BR_STANDARD, CURRENCY_FORMAT_BR_FINAL);
+    }
+
+    public static String formatStayingDateText(int stay) {
+        Calendar startDate = Calendar.getInstance();
+        Calendar returnDate = Calendar.getInstance();
+        returnDate.add(Calendar.DATE, stay);
+        SimpleDateFormat summaryDateFormat = new SimpleDateFormat(DATE_FORMAT);
+        String startDateFormatted = summaryDateFormat.format(startDate.getTime());
+        String returnDateFormatted = summaryDateFormat.format(returnDate.getTime());
+        return startDateFormatted + " - " + returnDateFormatted;
     }
 }
