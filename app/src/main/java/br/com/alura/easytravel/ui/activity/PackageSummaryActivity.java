@@ -53,6 +53,5 @@ public class PackageSummaryActivity extends AppCompatActivity {
         String returnDateFormatted = summaryDateFormat.format(returnDate.getTime());
         String summaryDateFormatted = startDateFormatted + " - " + returnDateFormatted;
         summaryDate.setText(summaryDateFormatted);
-
     }
 }
