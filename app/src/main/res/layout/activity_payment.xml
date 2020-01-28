@@ -64,8 +64,6 @@
         android:maxLength="2"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="@id/activity_payment_card_cvc"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/activity_payment_card_number" />
 
     <EditText
@@ -77,8 +75,6 @@
         android:maxLength="2"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="@id/activity_payment_card_cvc"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@id/activity_payment_card_month" />
 
     <EditText
@@ -99,8 +95,9 @@
         android:id="@+id/activity_payment_card_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:digits="abcdefghijklmnopqrstuvwxyzçABCDEFGHIJKLMNOPQRSTUVWXYZÇ "
         android:hint="Nome no cartão"
-        android:inputType="textCapWords"
+        android:inputType="textCapCharacters"
         app:layout_constraintEnd_toEndOf="@id/activity_payment_card_cvc"
         app:layout_constraintStart_toStartOf="@id/activity_payment_card_month"
         app:layout_constraintTop_toBottomOf="@id/activity_payment_card_cvc" />
@@ -114,7 +111,7 @@
         android:text="Finalizar compra"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="@id/activity_payment_card_cvc"
-        app:layout_constraintStart_toStartOf="@id/activity_payment_card_month"
+        app:layout_constraintStart_toStartOf="@id/activity_payment_card_name"
         app:layout_constraintTop_toBottomOf="@id/activity_payment_card_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

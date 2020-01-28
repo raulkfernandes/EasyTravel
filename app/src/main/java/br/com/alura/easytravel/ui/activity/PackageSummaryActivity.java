@@ -1,5 +1,6 @@
 package br.com.alura.easytravel.ui.activity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -31,6 +32,9 @@ public class PackageSummaryActivity extends AppCompatActivity {
         showStayingTime(packageSP);
         showStayingDate(packageSP);
         showPrice(packageSP);
+
+        Intent intent = new Intent(this, PaymentActivity.class);
+        startActivity(intent);
     }
 
     private void showStayingDate(PackageItem packageItem) {
