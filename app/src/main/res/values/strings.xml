@@ -7,4 +7,13 @@
     <string name="final_price">Preço final:</string>
     <string name="summary_image_description">Package destination image</string>
     <string name="package_summary_button_text">Realizar pagamento</string>
+    <string name="card_name_mask">abcdefghijklmnopqrstuvwxyzçABCDEFGHIJKLMNOPQRSTUVWXYZÇ\u0020</string>
+    <string name="payment_guide_text">Digite as informações do cartão de crédito que você deseja usar para o pagamento</string>
+    <string name="payment_price_text">Valor da compra:</string>
+    <string name="payment_card_number">Número do cartão</string>
+    <string name="payment_card_month">MM</string>
+    <string name="payment_card_year">AA</string>
+    <string name="payment_card_security_code">CVC</string>
+    <string name="payment_card_name">Nome no cartão</string>
+    <string name="payment_button_text">Finalizar compra</string>
 </resources>
