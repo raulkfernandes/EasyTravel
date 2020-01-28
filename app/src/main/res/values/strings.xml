@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">EasyTravel</string>
-    <string name="banner_description">Initial Banner</string>
+    <string name="package_list_banner_description">Image banner for the PackageList activity</string>
     <string name="package_list_title">Especiais</string>
     <string name="package_list_country">Brasil</string>
     <string name="package_image_description">Destination image preview</string>
@@ -16,4 +16,9 @@
     <string name="payment_card_security_code">CVC</string>
     <string name="payment_card_name">Nome no cartão</string>
     <string name="payment_button_text">Finalizar compra</string>
+    <string name="payment_summary_banner_description">Image banner for the PaymentSummary activity</string>
+    <string name="payment_summary_image_preview">Selected package image preview</string>
+    <string name="payment_summary_intro_text">Confira o resumo da compra:</string>
+    <string name="payment_summary_confirmation_text">Compra realizada com sucesso :)</string>
+    <string name="payment_summary_greeting_text">Parabéns!</string>
 </resources>

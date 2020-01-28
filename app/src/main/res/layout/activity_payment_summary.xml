@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/activity_payment_summary_banner"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@android:color/holo_orange_dark"
+        android:contentDescription="@string/payment_summary_banner_description"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/activity_payment_summary_greeting_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/payment_summary_greeting_text"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/activity_payment_summary_banner"
+        app:layout_constraintEnd_toEndOf="@id/activity_payment_summary_banner"
+        app:layout_constraintStart_toStartOf="@id/activity_payment_summary_banner"
+        app:layout_constraintTop_toTopOf="@id/activity_payment_summary_banner"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/activity_payment_summary_confirmation_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/payment_summary_confirmation_text"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/activity_payment_summary_greeting_text"
+        app:layout_constraintStart_toStartOf="@id/activity_payment_summary_greeting_text"
+        app:layout_constraintTop_toBottomOf="@id/activity_payment_summary_greeting_text" />
+
+    <TextView
+        android:id="@+id/activity_payment_summary_intro_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/payment_summary_intro_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_payment_summary_banner" />
+
+    <ImageView
+        android:id="@+id/activity_payment_summary_image"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/payment_summary_image_preview"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_payment_summary_intro_text"
+        tools:src="@drawable/sao_paulo_sp" />
+
+    <TextView
+        android:id="@+id/activity_payment_summary_destination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_payment_summary_image"
+        tools:text="São Paulo" />
+
+    <TextView
+        android:id="@+id/activity_payment_summary_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@id/activity_payment_summary_destination"
+        app:layout_constraintTop_toBottomOf="@id/activity_payment_summary_destination"
+        tools:text="08/12/17 - 10/12/17" />
+
+    <TextView
+        android:id="@+id/activity_payment_summary_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@id/activity_payment_summary_date"
+        app:layout_constraintTop_toBottomOf="@id/activity_payment_summary_date"
+        tools:text="R$ 243,99" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

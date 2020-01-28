@@ -1,5 +1,6 @@
 package br.com.alura.easytravel.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -13,7 +14,7 @@ import br.com.alura.easytravel.util.TextsUtil;
 
 public class PaymentActivity extends AppCompatActivity {
 
-    public static final String APPBAR_TITLE = "Pagamento";
+    private static final String APPBAR_TITLE = "Pagamento";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,9 @@ public class PaymentActivity extends AppCompatActivity {
         PackageItem packageSP = new PackageItem("sao_paulo_sp", "São Paulo", 2, new BigDecimal(243.99));
 
         showPrice(packageSP);
+
+        Intent intent = new Intent(this, PaymentSummaryActivity.class);
+        startActivity(intent);
     }
 
     private void showPrice(PackageItem packageSP) {

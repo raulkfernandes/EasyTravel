@@ -17,7 +17,7 @@ import br.com.alura.easytravel.util.TextsUtil;
 
 public class PackageSummaryActivity extends AppCompatActivity {
 
-    public static final String APPBAR_TITLE = "Resumo do pacote";
+    private static final String APPBAR_TITLE = "Resumo do pacote";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
