@@ -1,11 +1,13 @@
 package br.com.alura.easytravel.ui.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import br.com.alura.easytravel.R;
@@ -44,7 +46,18 @@ public class PaymentActivity extends AppCompatActivity {
         paymentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startPaymentSummaryActivity(packageItem);
+                new AlertDialog
+                        .Builder(PaymentActivity.this)
+                        .setTitle("Confirmação de compra")
+                        .setMessage("Tem certeza que quer confirmar a compra?")
+                        .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                startPaymentSummaryActivity(packageItem);
+                            }
+                        })
+                        .setNegativeButton("Não", null)
+                        .show();
             }
         });
     }
