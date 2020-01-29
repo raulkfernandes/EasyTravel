@@ -30,7 +30,7 @@ public class PaymentSummaryActivity extends AppCompatActivity {
     private void loadPackageItem() {
         Intent intent = getIntent();
         if (intent.hasExtra(PACKAGE_ITEM_KEY)) {
-            PackageItem packageItem = (PackageItem) intent.getSerializableExtra(PACKAGE_ITEM_KEY);
+            PackageItem packageItem = intent.getParcelableExtra(PACKAGE_ITEM_KEY);
             initializeFields(packageItem);
         }
     }
