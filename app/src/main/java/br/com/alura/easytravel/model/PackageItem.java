@@ -1,8 +1,10 @@
 package br.com.alura.easytravel.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class PackageItem {
+public class PackageItem implements Serializable {
+
     private final String image;
     private final String destination;
     private final int stay;

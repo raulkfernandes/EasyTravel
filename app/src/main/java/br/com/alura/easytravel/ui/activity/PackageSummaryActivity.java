@@ -3,17 +3,19 @@ package br.com.alura.easytravel.ui.activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.math.BigDecimal;
-
 import br.com.alura.easytravel.R;
 import br.com.alura.easytravel.model.PackageItem;
 import br.com.alura.easytravel.util.ResourcesUtil;
 import br.com.alura.easytravel.util.TextsUtil;
+
+import static br.com.alura.easytravel.ui.activity.ActivitiesConstants.PACKAGE_ITEM_KEY;
 
 public class PackageSummaryActivity extends AppCompatActivity {
 
@@ -24,17 +26,40 @@ public class PackageSummaryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_package_summary);
         setTitle(APPBAR_TITLE);
+        loadPackageItem();
+    }
 
-        PackageItem packageSP = new PackageItem("sao_paulo_sp", "São Paulo", 2, new BigDecimal(243.99));
+    private void loadPackageItem() {
+        Intent intent = getIntent();
+        if (intent.hasExtra(PACKAGE_ITEM_KEY)) {
+            PackageItem packageItem = (PackageItem) intent.getSerializableExtra(PACKAGE_ITEM_KEY);
+            initializeFields(packageItem);
+            setupPackageSummaryButton(packageItem);
+        }
+    }
 
-        showImage(packageSP);
-        showDestination(packageSP);
-        showStayingTime(packageSP);
-        showStayingDate(packageSP);
-        showPrice(packageSP);
+    private void setupPackageSummaryButton(final PackageItem packageItem) {
+        Button packageSummaryButton = findViewById(R.id.activity_package_summary_button);
+        packageSummaryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startPaymentActivity(packageItem);
+            }
+        });
+    }
 
-        Intent intent = new Intent(this, PaymentActivity.class);
+    private void startPaymentActivity(PackageItem packageItem) {
+        Intent intent = new Intent(PackageSummaryActivity.this, PaymentActivity.class);
+        intent.putExtra(PACKAGE_ITEM_KEY, packageItem);
         startActivity(intent);
+    }
+
+    private void initializeFields(PackageItem packageItem) {
+        showImage(packageItem);
+        showDestination(packageItem);
+        showStayingTime(packageItem);
+        showStayingDate(packageItem);
+        showPrice(packageItem);
     }
 
     private void showStayingDate(PackageItem packageItem) {

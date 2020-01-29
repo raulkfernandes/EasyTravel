@@ -1,5 +1,6 @@
 package br.com.alura.easytravel.ui.activity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -7,12 +8,12 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.math.BigDecimal;
-
 import br.com.alura.easytravel.R;
 import br.com.alura.easytravel.model.PackageItem;
 import br.com.alura.easytravel.util.ResourcesUtil;
 import br.com.alura.easytravel.util.TextsUtil;
+
+import static br.com.alura.easytravel.ui.activity.ActivitiesConstants.PACKAGE_ITEM_KEY;
 
 public class PaymentSummaryActivity extends AppCompatActivity {
 
@@ -23,36 +24,52 @@ public class PaymentSummaryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_summary);
         setTitle(APPBAR_TITLE);
-
-        PackageItem packageSP = new PackageItem("sao_paulo_sp", "São Paulo", 2, new BigDecimal(243.99));
-
-        showImage(packageSP);
-        showDestination(packageSP);
-        showDate(packageSP);
-        showPrice(packageSP);
-
+        loadPackageItem();
     }
 
-    private void showImage(PackageItem packageSP) {
+    private void loadPackageItem() {
+        Intent intent = getIntent();
+        if (intent.hasExtra(PACKAGE_ITEM_KEY)) {
+            PackageItem packageItem = (PackageItem) intent.getSerializableExtra(PACKAGE_ITEM_KEY);
+            initializeFields(packageItem);
+        }
+    }
+
+    private void initializeFields(PackageItem packageItem) {
+        showImage(packageItem);
+        showDestination(packageItem);
+        showDate(packageItem);
+        showPrice(packageItem);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(PaymentSummaryActivity.this, PackageListActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+    private void showImage(PackageItem packageItem) {
         ImageView paymentImage = findViewById(R.id.activity_payment_summary_image);
-        Drawable imageDrawable = ResourcesUtil.getImageDrawable(this, packageSP.getImage());
+        Drawable imageDrawable = ResourcesUtil.getImageDrawable(this, packageItem.getImage());
         paymentImage.setImageDrawable(imageDrawable);
     }
 
-    private void showPrice(PackageItem packageSP) {
+    private void showPrice(PackageItem packageItem) {
         TextView paymentPrice = findViewById(R.id.activity_payment_summary_price);
-        String paymentPriceText = TextsUtil.formatPriceText(packageSP.getPrice());
+        String paymentPriceText = TextsUtil.formatPriceText(packageItem.getPrice());
         paymentPrice.setText(paymentPriceText);
     }
 
-    private void showDate(PackageItem packageSP) {
+    private void showDate(PackageItem packageItem) {
         TextView paymentDate = findViewById(R.id.activity_payment_summary_date);
-        String paymentDateText = TextsUtil.formatStayingDateText(packageSP.getStay());
+        String paymentDateText = TextsUtil.formatStayingDateText(packageItem.getStay());
         paymentDate.setText(paymentDateText);
     }
 
-    private void showDestination(PackageItem packageSP) {
+    private void showDestination(PackageItem packageItem) {
         TextView paymentDestination = findViewById(R.id.activity_payment_summary_destination);
-        paymentDestination.setText(packageSP.getDestination());
+        paymentDestination.setText(packageItem.getDestination());
     }
 }

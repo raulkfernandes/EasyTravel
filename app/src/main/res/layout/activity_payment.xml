@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/activity_payment_value_text"
+        android:id="@+id/activity_payment_price_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -29,14 +29,14 @@
         app:layout_constraintTop_toBottomOf="@id/activity_payment_intro_text" />
 
     <TextView
-        android:id="@+id/activity_payment_value_price"
+        android:id="@+id/activity_payment_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:textColor="@android:color/holo_green_dark"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@id/activity_payment_value_text"
-        app:layout_constraintTop_toBottomOf="@id/activity_payment_value_text"
+        app:layout_constraintStart_toStartOf="@id/activity_payment_price_text"
+        app:layout_constraintTop_toBottomOf="@id/activity_payment_price_text"
         tools:text="R$ 421,50" />
 
     <EditText
@@ -50,7 +50,7 @@
         android:maxLength="12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/activity_payment_value_price" />
+        app:layout_constraintTop_toBottomOf="@id/activity_payment_price" />
 
     <EditText
         android:id="@+id/activity_payment_card_month"
