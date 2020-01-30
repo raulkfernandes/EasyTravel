@@ -49,7 +49,7 @@ public class PaymentActivity extends AppCompatActivity {
                 new AlertDialog
                         .Builder(PaymentActivity.this)
                         .setTitle("Confirmação de compra")
-                        .setMessage("Tem certeza que quer confirmar a compra?")
+                        .setMessage("Deseja mesmo concluir o pagamento?")
                         .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
