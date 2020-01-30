@@ -50,7 +50,7 @@ public class PackageListAdapter extends BaseAdapter {
             mView = convertView;
         }
         else {
-            mView = LayoutInflater.from(mContext).inflate(R.layout.item_package_list, parentView, false);
+            mView = LayoutInflater.from(mContext).inflate(R.layout.item_package, parentView, false);
         }
 
         PackageItem packageItem = packageList.get(index);
@@ -64,24 +64,24 @@ public class PackageListAdapter extends BaseAdapter {
     }
 
     private void bindPriceToLayout(View mView, PackageItem packageItem) {
-        TextView price = mView.findViewById(R.id.item_package_list_price);
+        TextView price = mView.findViewById(R.id.item_package_price);
         String priceTextFormat = TextsUtil.formatPriceText(packageItem.getPrice());
         price.setText(priceTextFormat);
     }
 
     private void bindStayingTimeToLayout(View mView, PackageItem packageItem) {
-        TextView stay = mView.findViewById(R.id.item_package_list_stay);
+        TextView stay = mView.findViewById(R.id.item_package_stay);
         String stayTextFormat = TextsUtil.formatStayingTimeText(packageItem.getStay());
         stay.setText(stayTextFormat);
     }
 
     private void bindDestinationToLayout(View mView, PackageItem packageItem) {
-        TextView destination = mView.findViewById(R.id.item_package_list_destination);
+        TextView destination = mView.findViewById(R.id.item_package_destination);
         destination.setText(packageItem.getDestination());
     }
 
     private void bindImageToLayout(View mView, PackageItem packageItem) {
-        ImageView image = mView.findViewById(R.id.item_package_list_image);
+        ImageView image = mView.findViewById(R.id.item_package_image);
         Drawable imageDrawable = ResourcesUtil.getImageDrawable(mContext, packageItem.getImage());
         image.setImageDrawable(imageDrawable);
     }

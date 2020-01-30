@@ -18,7 +18,7 @@
         app:srcCompat="@color/colorPrimary" />
 
     <TextView
-        android:id="@+id/actitivy_package_list_title"
+        android:id="@+id/activity_package_list_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -41,8 +41,8 @@
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/actitivy_package_list_title"
-        app:layout_constraintTop_toBottomOf="@id/actitivy_package_list_title" />
+        app:layout_constraintStart_toStartOf="@id/activity_package_list_title"
+        app:layout_constraintTop_toBottomOf="@id/activity_package_list_title" />
 
     <ListView
         android:id="@+id/activity_package_list_listview"
@@ -56,6 +56,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/activity_package_list_banner"
         app:layout_constraintVertical_bias="0.0"
-        tools:listitem="@layout/item_package_list" />
+        tools:listitem="@layout/item_package" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

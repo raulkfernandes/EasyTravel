@@ -20,7 +20,7 @@ public class PackageItem implements Parcelable {
     }
 
     // Parcelable implementation:
-    protected PackageItem(Parcel in) {
+    private PackageItem(Parcel in) {
         this.image = in.readString();
         this.destination = in.readString();
         this.stay = in.readInt();

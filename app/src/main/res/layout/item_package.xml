@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/item_package_list_cardview"
+        android:id="@+id/item_package_cardview"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -22,7 +22,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/item_package_list_image"
+                android:id="@+id/item_package_image"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:contentDescription="@string/package_image_description"
@@ -33,7 +33,7 @@
                 tools:src="@sample/packages.json/packages/image" />
 
             <TextView
-                android:id="@+id/item_package_list_destination"
+                android:id="@+id/item_package_destination"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
@@ -42,25 +42,25 @@
                 android:textColor="@android:color/white"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@id/item_package_list_image"
-                app:layout_constraintEnd_toEndOf="@id/item_package_list_image"
+                app:layout_constraintBottom_toBottomOf="@id/item_package_image"
+                app:layout_constraintEnd_toEndOf="@id/item_package_image"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@id/item_package_list_image"
-                app:layout_constraintTop_toTopOf="@id/item_package_list_image"
+                app:layout_constraintStart_toStartOf="@id/item_package_image"
+                app:layout_constraintTop_toTopOf="@id/item_package_image"
                 app:layout_constraintVertical_bias="1.0"
                 tools:text="@sample/packages.json/packages/destination" />
 
             <View
-                android:id="@+id/item_package_list_divisor"
+                android:id="@+id/item_package_divisor"
                 android:layout_width="0dp"
                 android:layout_height="3dp"
                 android:background="@android:color/holo_orange_dark"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/item_package_list_image" />
+                app:layout_constraintTop_toBottomOf="@id/item_package_image" />
 
             <TextView
-                android:id="@+id/item_package_list_stay"
+                android:id="@+id/item_package_stay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
@@ -69,19 +69,19 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/item_package_list_divisor"
+                app:layout_constraintTop_toBottomOf="@id/item_package_divisor"
                 tools:text="@sample/packages.json/packages/stay" />
 
             <TextView
-                android:id="@+id/item_package_list_price"
+                android:id="@+id/item_package_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:textColor="@android:color/holo_green_dark"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@id/item_package_list_stay"
-                app:layout_constraintTop_toBottomOf="@id/item_package_list_stay"
+                app:layout_constraintStart_toStartOf="@id/item_package_stay"
+                app:layout_constraintTop_toBottomOf="@id/item_package_stay"
                 tools:text="@sample/packages.json/packages/price" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
